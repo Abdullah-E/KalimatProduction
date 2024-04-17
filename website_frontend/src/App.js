@@ -41,7 +41,7 @@ function App() {
       }
     }
     Paddle.Initialize({
-        token: "test_18780c77df0655fc4d02d1b24ec",
+        token: REACT_APP_PADDLE_TOKEN,
         eventCallback: handlePaddleEvent
     })
   }, [getUserId])
