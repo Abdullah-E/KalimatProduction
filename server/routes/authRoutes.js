@@ -3,11 +3,12 @@ import { User } from '../Models/user.js'
 import {Code} from '../Models/code.js'
 import {google} from 'googleapis'
 import fs from 'fs'
-const client_id_env = process.env.GOOGLE_CLIENT_ID
-console.log("client_id_env", client_id_env)
-const oauth_creds = JSON.parse(fs.readFileSync('oauth_creds.json', 'utf8'))
+const client_id = process.env.GOOGLE_CLIENT_ID
+const client_secret = process.env.GOOGLE_CLIENT_SECRET
+const redirect_uris = process.env.GOOGLE_REDIRECT_URI
+// const oauth_creds = JSON.parse(fs.readFileSync('oauth_creds.json', 'utf8'))
 
-const { client_id, client_secret, redirect_uris } = oauth_creds.web
+// const { client_id, client_secret, redirect_uris } = oauth_creds.web
 const oauth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0])
 const scopes = ["https://www.googleapis.com/auth/userinfo.profile"]
 
