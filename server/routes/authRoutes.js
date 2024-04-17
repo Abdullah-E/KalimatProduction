@@ -5,18 +5,18 @@ import {google} from 'googleapis'
 import fs from 'fs'
 const client_id = process.env.GOOGLE_CLIENT_ID
 const client_secret = process.env.GOOGLE_CLIENT_SECRET
-const redirect_uris = process.env.GOOGLE_REDIRECT_URI
+const redirect_uri = process.env.GOOGLE_REDIRECT_URI
 console.log("client_id", client_id)
 console.log("client_secret", client_secret)
-console.log("redirect_uris", redirect_uris)
+console.log("redirect_uris", redirect_uri)
 // const oauth_creds = JSON.parse(fs.readFileSync('oauth_creds.json', 'utf8'))
 
 // const { client_id, client_secret, redirect_uris } = oauth_creds.web
-const oauth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0])
+const oauth2Client = new google.auth.OAuth2(client_id, client_secret, redirect_uri)
 const scopes = ["https://www.googleapis.com/auth/userinfo.profile"]
 
 fastify.get('/oauth-redirect', async function (req, res) {
-    console.log("google login", redirect_uris[0])
+    // console.log("google login", redirect_uris[0])
     const authUrl = oauth2Client.generateAuthUrl({
         access_type: "offline",
         scope: scopes,
