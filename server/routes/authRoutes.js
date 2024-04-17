@@ -1,10 +1,10 @@
-
 import {fastify} from './init.js'
 import { User } from '../Models/user.js'
 import {Code} from '../Models/code.js'
 import {google} from 'googleapis'
 import fs from 'fs'
-
+const client_id_env = process.env.GOOGLE_CLIENT_ID
+console.log("client_id_env", client_id_env)
 const oauth_creds = JSON.parse(fs.readFileSync('oauth_creds.json', 'utf8'))
 
 const { client_id, client_secret, redirect_uris } = oauth_creds.web
