@@ -41,7 +41,7 @@ function App() {
       }
     }
     Paddle.Initialize({
-        token: REACT_APP_PADDLE_TOKEN,
+        token: process.env.REACT_APP_PADDLE_TOKEN,
         eventCallback: handlePaddleEvent
     })
   }, [getUserId])
