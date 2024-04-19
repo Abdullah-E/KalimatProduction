@@ -5,12 +5,12 @@ import MainPage from './pages/MainPage'
 import DashboardPage from './pages/DashboardPage'
 
 import { addCredits, useUserCookies } from './api/api'
-import { useCookies } from 'react-cookie'
+import { useCookies} from 'react-cookie'
 
 function App() {
 
   const {getUserId} = useUserCookies()
-  const [setCookie] = useCookies(['user'])
+  const [setCookie, cookies] = useCookies(['user'])
 
 
   useEffect(() => {
@@ -44,7 +44,7 @@ function App() {
         token: process.env.REACT_APP_PADDLE_TOKEN,
         eventCallback: handlePaddleEvent
     })
-  }, [getUserId])
+  }, [getUserId, cookies, setCookie])
   return (
 
     <Router>
