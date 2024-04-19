@@ -5,7 +5,7 @@ import MainPage from './pages/MainPage'
 import DashboardPage from './pages/DashboardPage'
 
 import { addCredits, useUserCookies } from './api/api'
-import { useCookies} from 'react-cookie'
+import { CookiesProvider,useCookies} from 'react-cookie'
 
 function App() {
 
@@ -49,14 +49,15 @@ function App() {
     })
   }, [getUserId, cookies, setCookie])
   return (
-
-    <Router>
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-      </Routes>
-    </Router>
-
+    
+    <CookiesProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/dashboard" element={<DashboardPage />} />
+        </Routes>
+      </Router>
+    </CookiesProvider>
   )
 }
 
