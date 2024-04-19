@@ -15,8 +15,8 @@ function App() {
 
   useEffect(() => {
     console.log("App.js useEffect")
-    //print cookies
-    console.log(cookies)
+    //print user cookies
+    console.log(cookies.user)
     const Paddle = window.Paddle
     const handlePaddleEvent = (data) => {
       if (data.name === "checkout.completed") {
@@ -33,7 +33,7 @@ function App() {
 
           addCredits(g_id, total_credits).then(response => {
 
-              setCookie('user', response.profile, { path: '/' })
+            setCookie('user', response.profile, { path: '/' })
   
           }).catch(error => {
               console.error("Error in addCredits:", error)
