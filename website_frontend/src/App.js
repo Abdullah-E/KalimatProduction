@@ -11,9 +11,12 @@ function App() {
 
   const {getUserId} = useUserCookies()
   const [setCookie, cookies] = useCookies(['user'])
-
+  const paddle_token = "test_18780c77df0655fc4d02d1b24ec"
 
   useEffect(() => {
+    console.log("App.js useEffect")
+    //print cookies
+    console.log(cookies)
     const Paddle = window.Paddle
     const handlePaddleEvent = (data) => {
       if (data.name === "checkout.completed") {
@@ -41,7 +44,7 @@ function App() {
       }
     }
     Paddle.Initialize({
-        token: process.env.REACT_APP_PADDLE_TOKEN,
+        token: paddle_token,
         eventCallback: handlePaddleEvent
     })
   }, [getUserId, cookies, setCookie])
