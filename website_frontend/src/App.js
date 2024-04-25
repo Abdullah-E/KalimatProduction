@@ -33,7 +33,8 @@ function App() {
 
           addCredits(g_id, total_credits).then(response => {
 
-            setCookie('user', response.profile, { path: '/' })
+            // setCookie('user', response.profile, { path: '/' })
+            console.log("addCredits response:", response)
   
           }).catch(error => {
               console.error("Error in addCredits:", error)
@@ -47,7 +48,7 @@ function App() {
         token: paddle_token,
         eventCallback: handlePaddleEvent
     })
-  }, [getUserId, cookies, setCookie])
+  }, [getUserId])
   return (
     
     <CookiesProvider>
