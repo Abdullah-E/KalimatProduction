@@ -11,14 +11,8 @@ import { addCredits, useUserCookies } from '../api/api';
 function App() {
   const {getUserId} = useUserCookies()
   const [ cookies,setCookie] = useCookies(['user'])
-  const paddle_token = "test_18780c77df0655fc4d02d1b24ec"
-  const g_id_temp = getUserId()
-  console.log("g_id_temp:", g_id_temp)
-
   useEffect(() => {
-    console.log("App.js useEffect")
-    //print user cookies
-    console.log(cookies.user)
+
     const Paddle = window.Paddle
     const handlePaddleEvent = (data) => {
       if (data.name === "checkout.completed") {
@@ -36,11 +30,10 @@ function App() {
           addCredits(g_id, total_credits).then(response => {
 
             setCookie('user', response.profile, { path: '/' })
-            console.log("addCredits response:", response)
   
           }).catch(error => {
               console.error("Error in addCredits:", error)
-              console.log('setCookie function:', setCookie);
+
           })
         }else{
           console.error("g_id is not set.")
@@ -48,7 +41,7 @@ function App() {
       }
     }
     Paddle.Initialize({
-        token: paddle_token,
+        token: process.env.REACT_APP_PADDLE_TOKEN,
         eventCallback: handlePaddleEvent
     })
   }, [getUserId, cookies])
