@@ -2,7 +2,8 @@ import Navigation from '../components/Navigation';
 import About from '../components/About';
 import Features from '../components/Features';
 import Pricing from '../components/Pricing';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
+import Footer from '../components/PolicyPage/Footer';
 
 import { useEffect } from 'react';
 import { useCookies } from 'react-cookie';
