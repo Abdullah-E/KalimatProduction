@@ -17,9 +17,7 @@ export default function DashboardPage() {
   const [cookies, setCookie, getCookie] = useCookies(["user"])
 
   useEffect(() =>{
-    if(cookies.user){
-      console.log("cookies.user", cookies.user)
-    }else{
+    if(!cookies.user){
 
       const url = window.location.href
       if (!url){
@@ -33,14 +31,12 @@ export default function DashboardPage() {
         paramObj[key] = value
       })
       const accessToken = paramObj.code
-      console.log("accessToken", accessToken)
       accessTokenRequest(accessToken)
       .then(response => {
 
           // Check if response contains profile data
           if (response && response.profile) {
             setCookie('user', response.profile, { path: '/' })
-            console.log("cookie set:", response.profile)
           } 
           // else {
           //     throw new Error('Invalid response from server: Missing profile data');

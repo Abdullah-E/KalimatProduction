@@ -10,6 +10,7 @@ function UserBadge() {
   
   const logged_in = profile? profile.email? true: false :false
   console.log("logged_in", logged_in)
+  console.log("cookie in UserBadge", cookies.user)
   const navigate = useNavigate();
   const handleClick = () => {
     if(logged_in){
