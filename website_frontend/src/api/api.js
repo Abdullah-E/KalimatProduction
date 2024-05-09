@@ -1,7 +1,6 @@
 import { useCookies } from "react-cookie"
 
-// const API_URL = 'http://localhost:8000'
-const API_URL = process.env.REACT_APP_API_URL
+const API_URL = 'https://seo-stats-google-extension.onrender.com'
 export const googleLoginRequest = async (profileObj) => {
     const endpoint = API_URL + '/login' 
 
@@ -56,6 +55,22 @@ export const OauthRedirect = async () => {
     })
 }
 
+
+// export const accessTokenRequest = async (code) => {
+//     const endpoint = API_URL + '/google-callback?code=' + code
+//     return fetch(endpoint)
+//     .then(response => {
+//         if (!response.ok) {
+//             throw new Error('Invalid access token response from server')
+//         }
+//         return response
+//     })
+//     .catch(error => {
+//         console.error('Error fetching access token from server:', error)
+//         throw error
+//     })
+// }
+
 export const accessTokenRequest = async (code) => {
     const endpoint = API_URL + '/google-callback?code=' + code
     try {
@@ -75,8 +90,7 @@ export const useUserCookies = () => {
     return {
         getUserId: () => cookies.user?.id,
         removeUserId: () => removeCookie('user'),
-        getUser: () => cookies.user,
-        setUser: (user) => setCookie('user', user, { path: '/' })
+        getUser: () => cookies.user
     }
 }
 
