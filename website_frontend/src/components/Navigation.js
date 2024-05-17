@@ -77,7 +77,7 @@ export default function Navigation() {
           </li>
         </ul>
 
-        <a className="text-lg font-bold" href="#">
+        <a className="text-lg font-bold" href="/">
           <img className="w-[150px] h-auto" src={Logo} alt="" width="auto" />
         </a>
       </nav>

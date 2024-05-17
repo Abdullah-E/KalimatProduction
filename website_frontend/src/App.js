@@ -14,7 +14,7 @@ function App() {
     <CookiesProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<MainPage />} />
+          <Route path="/" element={<MainPage/>} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/policy" element={<PolicyPage />} />
           <Route path="/termsandconditions" element={<TermsAndConditionsPage />} />

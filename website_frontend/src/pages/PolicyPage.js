@@ -5,7 +5,6 @@ import LanguageSelector from "./../components/PolicyPage/LanguageSelector";
 import ContentArea from "./../components/PolicyPage/ContentArea";
 
   
-
 function PolicyPage() {
   const [language, setLanguage] = useState("English");
   
@@ -18,7 +17,7 @@ function PolicyPage() {
           <ContentArea language={language} />
         </div>
       </div>
-      
+      <Navbar/>
       <Footer />
     </div>
   );

@@ -60,7 +60,7 @@ function Navbar() {
           </li>
         </ul>
 
-        <a href="#">
+        <a href="/">
           <img className="w-[150px] h-auto" src={Logo} alt="Logo" />
         </a>
       </nav>
